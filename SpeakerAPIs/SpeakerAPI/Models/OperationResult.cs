@@ -27,7 +27,7 @@ namespace SpeakerAPI.Models
         /// <summary>
         /// An Json Object contains the processing result. This object exists only when the operation status is succeeded.
         /// </summary>
-        public string processingResult { get; set; }
+        public ProcessingResult processingResult { get; set; }
 
         /// <summary>
         /// Speaker identification profile enrollment status
@@ -48,7 +48,10 @@ namespace SpeakerAPI.Models
         /// Seconds of useful speech in enrollment audio.
         /// </summary>
         public int speechTime { get; set; }
+    }
 
+    public class ProcessingResult
+    {
         /// <summary>
         /// The identified speaker identification profile id. If this value is 00000000-0000-0000-0000-000000000000, it means there's no speaker identification profile identified and the audio file to be identified belongs to none of the provided speaker identification profiles.
         /// </summary>

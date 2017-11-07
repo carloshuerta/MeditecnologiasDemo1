@@ -3,12 +3,15 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using System.Net.Http;
     using System.Net.Http.Headers;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Web.Http;
     using Newtonsoft.Json;
     using SpeakerAPI.Models;
+    using SpeakerAPI.Repositories;
 
     public class IdentifyController : ApiController
     {
@@ -28,19 +31,21 @@
         }
 
         [HttpPost]
-        public async Task<string> Post()
+        public async Task<Speaker> Post()
         {
-            IEnumerable<string> headerValues = Request.Headers.GetValues(SUBSCRIPTION_KEY_HEADER);
+            SpeakersRepository speakersRepository = new SpeakersRepository();
+            var speakerList = speakersRepository.ListSpeakers();
+
+            IEnumerable<string> headerValues = this.Request.Headers.GetValues(SUBSCRIPTION_KEY_HEADER);
             var subscriptionKey = headerValues.FirstOrDefault();
 
             this.httpClient.DefaultRequestHeaders.Accept.Clear();
             this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             this.httpClient.DefaultRequestHeaders.Add(SUBSCRIPTION_KEY_HEADER, subscriptionKey);
 
             var audio = await this.Request.Content.ReadAsByteArrayAsync();
 
-            string enrolledProfiles = "5006205c-7bed-4f74-8b85-a2344943e303,7ec023b2-1e12-4c85-8b73-6b19aa782f83";
+            string enrolledProfiles = string.Join(",", speakerList.Select(x => x.identificationProfileId));
             string uri = string.Format(@"https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds={0}&shortAudio=true", enrolledProfiles);
             using (var content = new ByteArrayContent(audio))
             {
@@ -49,24 +54,35 @@
 
                 if (!response.IsSuccessStatusCode)
                 { 
-                    return await response.Content.ReadAsStringAsync();
+                    this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, await response.Content.ReadAsStringAsync());
                 }
 
                 if (response.Headers.Contains(OPERATION_LOCATION_HEADER))
                 {
                     string operationLocationURL = response.Headers.GetValues(OPERATION_LOCATION_HEADER).First();
-                    var operationResult = await GetOperationDetailAsync(operationLocationURL, subscriptionKey);
 
-                    var operation = JsonConvert.DeserializeObject<OperationResult>(operationResult);
-
-                    if (operation.status == OperationStatus.succeeded)
+                    OperationResult operation = new OperationResult { status = OperationStatus.notstarted };
+                    while (operation.status == OperationStatus.notstarted || operation.status == OperationStatus.running)
                     {
-                        return operation.identifiedProfileId;
+                        var operationResult = await GetOperationDetailAsync(operationLocationURL, subscriptionKey);
+
+                        operation = JsonConvert.DeserializeObject<OperationResult>(operationResult);
+
+                        if (operation.status == OperationStatus.succeeded)
+                        {
+                            var identifiedSpeaker = speakerList.Single(x => x.identificationProfileId == operation.processingResult?.identifiedProfileId);
+
+                            return identifiedSpeaker;
+                        }
+                        // TODO: Add error handling.
+
+                        // Wait a bit to try again.
+                        Thread.Sleep(300);
                     }
                 }
             }
             
-            return string.Empty;
+            return default(Speaker);
         }
 
         private async Task<string> GetOperationDetailAsync(string operationURL, string subscripionKey)
