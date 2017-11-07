@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
     using System.Net.Http;
     using System.Net.Http.Headers;
@@ -41,14 +40,15 @@
 
             var audio = await this.Request.Content.ReadAsByteArrayAsync();
 
-            string uri = @"https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=7f929fad-3919-4a7a-9fe4-3c1f272d5410,7ec023b2-1e12-4c85-8b73-6b19aa782f83,5006205c-7bed-4f74-8b85-a2344943e303&shortAudio=true";
+            string enrolledProfiles = "5006205c-7bed-4f74-8b85-a2344943e303,7ec023b2-1e12-4c85-8b73-6b19aa782f83";
+            string uri = string.Format(@"https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds={0}&shortAudio=true", enrolledProfiles);
             using (var content = new ByteArrayContent(audio))
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue(@"application/json");
                 var response = await httpClient.PostAsync(uri, content);
 
                 if (!response.IsSuccessStatusCode)
-                {
+                { 
                     return await response.Content.ReadAsStringAsync();
                 }
 
