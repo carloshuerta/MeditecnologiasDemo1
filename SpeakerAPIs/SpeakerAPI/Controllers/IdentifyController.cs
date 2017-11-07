@@ -8,6 +8,8 @@
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using Newtonsoft.Json;
+    using SpeakerAPI.Models;
 
     public class IdentifyController : ApiController
     {
@@ -33,8 +35,7 @@
             var subscriptionKey = headerValues.FirstOrDefault();
 
             this.httpClient.DefaultRequestHeaders.Accept.Clear();
-            this.httpClient.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+            this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             this.httpClient.DefaultRequestHeaders.Add(SUBSCRIPTION_KEY_HEADER, subscriptionKey);
 
@@ -44,17 +45,24 @@
             using (var content = new ByteArrayContent(audio))
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue(@"application/json");
-                var BabuResponse = await httpClient.PostAsync(uri, content);
+                var response = await httpClient.PostAsync(uri, content);
 
-                if (!BabuResponse.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
                 {
-                    return await BabuResponse.Content.ReadAsStringAsync();
+                    return await response.Content.ReadAsStringAsync();
                 }
 
-                if (BabuResponse.Headers.Contains(OPERATION_LOCATION_HEADER))
+                if (response.Headers.Contains(OPERATION_LOCATION_HEADER))
                 {
-                    string operationLocationURL = BabuResponse.Headers.GetValues(OPERATION_LOCATION_HEADER).First();
-                    return await GetOperationDetailAsync(operationLocationURL, subscriptionKey);
+                    string operationLocationURL = response.Headers.GetValues(OPERATION_LOCATION_HEADER).First();
+                    var operationResult = await GetOperationDetailAsync(operationLocationURL, subscriptionKey);
+
+                    var operation = JsonConvert.DeserializeObject<OperationResult>(operationResult);
+
+                    if (operation.status == OperationStatus.succeeded)
+                    {
+                        return operation.identifiedProfileId;
+                    }
                 }
             }
             
