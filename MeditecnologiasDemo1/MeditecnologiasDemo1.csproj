@@ -786,6 +786,7 @@
     <Compile Include="Assets\Scripts\Audio\AudioSaver.cs" />
     <Compile Include="Assets\Scripts\Audio\MicRecorderManager.cs" />
     <Compile Include="Assets\Scripts\Models\SpeakerIdentification.cs" />
+    <Compile Include="Assets\Scripts\Scheduler\SchedulerManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />
