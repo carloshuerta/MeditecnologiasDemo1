@@ -20,4 +20,11 @@ namespace SpeakerAPI.Models
 
         public string Name { get; set; }
     }
+
+    public class SpeakerResult
+    {
+        public string id { get; set; }
+
+        public string name { get; set; }
+    }
 }

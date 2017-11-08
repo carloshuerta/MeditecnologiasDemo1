@@ -31,7 +31,7 @@
         }
 
         [HttpPost]
-        public async Task<Speaker> Post()
+        public async Task<SpeakerResult> Post()
         {
             SpeakersRepository speakersRepository = new SpeakersRepository();
             var speakerList = speakersRepository.ListSpeakers();
@@ -72,7 +72,11 @@
                         {
                             var identifiedSpeaker = speakerList.Single(x => x.identificationProfileId == operation.processingResult?.identifiedProfileId);
 
-                            return identifiedSpeaker;
+                            return new SpeakerResult
+                            {
+                                id = identifiedSpeaker.identificationProfileId,
+                                name = identifiedSpeaker.Name
+                            };
                         }
                         // TODO: Add error handling.
 
@@ -82,7 +86,7 @@
                 }
             }
             
-            return default(Speaker);
+            return default(SpeakerResult);
         }
 
         private async Task<string> GetOperationDetailAsync(string operationURL, string subscripionKey)

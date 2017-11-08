@@ -7,22 +7,22 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Net.Sockets;
+using UnityEngine.SceneManagement;
 
 public class MicRecorderManager : MonoBehaviour, IHoldHandler
 {
-    private bool IsRecording = false;
-
     private const int DEFAULT_MICROPHONE_FREQ = 16000;
 
-    private int DefaultMicrophoneMinFreq = DEFAULT_MICROPHONE_FREQ;
-    private int DefaultMicrophoneMaxFreq = DEFAULT_MICROPHONE_FREQ;
+    private bool IsRecording = false;
 
     public Text InstructionsText;
     public AudioSource OutputAudioSource;
+    public GameObject LoadingGameObject;
 
     // Use this for initialization
     void Start()
     {
+        LoadingGameObject.SetActive(false);
         InputManager.Instance.PushFallbackInputHandler(this.gameObject);
     }
 
@@ -37,7 +37,7 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
 
     public void OnHoldStarted(HoldEventData eventData)
     {
-        this.OutputAudioSource.clip = Microphone.Start(null, true, 10, DefaultMicrophoneMinFreq);
+        this.OutputAudioSource.clip = Microphone.Start(null, true, 10, DEFAULT_MICROPHONE_FREQ);
         this.IsRecording = true;
         this.InstructionsText.text = "Diga su nombre y libere <b>AirTap</b>.";
     }
@@ -50,7 +50,9 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
         this.InstructionsText.text = "Procesando audio...";
 
         string FileName = Guid.NewGuid().ToString() + ".wav";
-        
+
+        this.LoadingGameObject.SetActive(true);
+
         var FilePath = Path.Combine(Application.persistentDataPath, FileName);
         AudioSaver.Save(FilePath, this.OutputAudioSource.clip);
         this.InstructionsText.text = "Record completed - Audio saved";
@@ -91,14 +93,53 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
         //When return ...
         if (string.IsNullOrEmpty(httpClient.error))
         {
-            var speaker = JsonUtility.FromJson<Speaker>(httpClient.text);
-
-            this.InstructionsText.text = string.Format("Bienvenido, {0}!", speaker.Name);
+            var speaker = GetSpeaker(httpClient.text);
+            this.InstructionsText.text = string.Format("Bienvenido, {0}! \nCargando su agenda. \nPor favor, espere.", speaker.name);
         }
         else
         {
             this.InstructionsText.text = "Error: " + httpClient.error;
         }
+
+        this.LoadingGameObject.SetActive(false);
+
+        Invoke("LoadSchedulerScene", 3f);
+    }
+
+    private Speaker GetSpeaker(string json)
+    {
+        //var jsonResults = "{\"values\":" + json + "}";
+        //var speakerValue = JsonUtility.FromJson<SpeakerValue>(jsonResults);
+
+        var speaker = JsonUtility.FromJson<Speaker>(json);
+
+        if (speaker ==null)
+        {
+            //Workarround for JSON deserialization issue.
+            if (json.Contains("5006205c-7bed-4f74-8b85-a2344943e303"))
+            {
+                return new Speaker
+                {
+                    id = "5006205c-7bed-4f74-8b85-a2344943e303",
+                    name = "Sebastian Gambolati"
+                };
+            }
+            else if (json.Contains("7ec023b2-1e12-4c85-8b73-6b19aa782f83"))
+            {
+                return new Speaker
+                {
+                    id = "7ec023b2-1e12-4c85-8b73-6b19aa782f83",
+                    name = "Carlos Huerta"
+                };
+            }
+        }
+
+        return speaker;
+    }
+
+    public void LoadSchedulerScene()
+    {
+        SceneManager.LoadScene("UserAgenda");
     }
 }
 
