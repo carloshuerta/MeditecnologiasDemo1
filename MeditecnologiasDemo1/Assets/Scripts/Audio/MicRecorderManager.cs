@@ -110,7 +110,7 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
     {
         var speaker = JsonUtility.FromJson<Speaker>(json);
 
-        if (speaker ==null)
+        if (speaker == null)
         {
             //Workarround for JSON deserialization issue.
             if (json.Contains("5006205c-7bed-4f74-8b85-a2344943e303"))
