@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/VoiceLogin.unity
+    guid: a9fd47d1cc5655548b8eea5ef6b6e9ad

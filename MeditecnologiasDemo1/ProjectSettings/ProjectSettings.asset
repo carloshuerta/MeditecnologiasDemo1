@@ -237,7 +237,10 @@ PlayerSettings:
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons: []
-  m_BuildTargetBatching: []
+  m_BuildTargetBatching:
+  - m_BuildTarget: Windows Store Apps
+    m_StaticBatching: 1
+    m_DynamicBatching: 0
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings:
   - m_BuildTarget: Metro
@@ -522,17 +525,17 @@ PlayerSettings:
     Metro: 2
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
-  scriptingRuntimeVersion: 0
+  scriptingRuntimeVersion: 1
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: MeditecnologiasDemo1
-  metroPackageVersion: 
-  metroCertificatePath: 
+  metroPackageVersion: 1.0.0.0
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 00e59c9c6d75d401
   metroApplicationDescription: MeditecnologiasDemo1
   wsaImages: {}
   metroTileShortName: 
@@ -549,12 +552,30 @@ PlayerSettings:
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities:
     WindowsStoreApps:
+      AllJoyn: False
+      BlockedChatMessages: False
+      Bluetooth: False
+      Chat: False
+      CodeGeneration: False
+      EnterpriseAuthentication: False
       HumanInterfaceDevice: False
+      InputInjectionBrokered: False
       InternetClient: True
       InternetClientServer: False
+      Location: False
       Microphone: True
+      MusicLibrary: False
+      Objects3D: False
+      PhoneCall: False
+      PicturesLibrary: False
       PrivateNetworkClientServer: False
+      Proximity: False
+      RemovableStorage: False
+      SharedUserCertificates: False
       SpatialPerception: True
+      UserAccountInformation: False
+      VideosLibrary: False
+      VoipCall: False
       WebCam: True
   metroFTAName: 
   metroFTAFileTypes: []
@@ -614,10 +635,10 @@ PlayerSettings:
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
-  cloudProjectId: 185c014e-421d-4932-930f-f08422235e55
-  projectName: MeditecnologiasDemo1
-  organizationId: carloshuerta
+  apiCompatibilityLevel: 3
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
