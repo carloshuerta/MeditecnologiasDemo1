@@ -2,6 +2,7 @@
 
 namespace SpeakerAPI.Models
 {
+
     public class Speaker
     {
         public string identificationProfileId { get; set; }
@@ -21,6 +22,7 @@ namespace SpeakerAPI.Models
         public string Name { get; set; }
     }
 
+    [Serializable]
     public class SpeakerResult
     {
         public string id { get; set; }
