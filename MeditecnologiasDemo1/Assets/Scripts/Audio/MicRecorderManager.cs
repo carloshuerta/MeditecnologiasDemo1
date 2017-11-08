@@ -108,9 +108,6 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
 
     private Speaker GetSpeaker(string json)
     {
-        //var jsonResults = "{\"values\":" + json + "}";
-        //var speakerValue = JsonUtility.FromJson<SpeakerValue>(jsonResults);
-
         var speaker = JsonUtility.FromJson<Speaker>(json);
 
         if (speaker ==null)
