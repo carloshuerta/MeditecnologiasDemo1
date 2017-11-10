@@ -28,7 +28,7 @@
         }
 
         [HttpPost]
-        public async Task<IList<PersonModel>> Post()
+        public async Task<IList<FaceIdentificationResult>> Post()
         {
             IEnumerable<string> headerValues = this.Request.Headers.GetValues(SUBSCRIPTION_KEY_HEADER);
             var subscriptionKey = headerValues.FirstOrDefault();
@@ -46,15 +46,32 @@
             return personsIdentified;
         }
 
-        private async Task<IList<PersonModel>> IdentifyPersons(IList<FaceIdentifyModel> facesIdentified, string personGroupId)
+        private async Task<IList<FaceIdentificationResult>> IdentifyPersons(IList<FaceIdentifyModel> facesIdentified, string personGroupId)
         {
             string uri = string.Format(@"https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/{0}/persons", personGroupId);
 
             var personsResponse = await this.httpClient.GetStringAsync(uri);
             var personsInGroup = JsonConvert.DeserializeObject<IList<PersonModel>>(personsResponse);
 
-            return personsInGroup.Where(x => facesIdentified.Any(y => y.candidates.Any(z => z.personId == x.personId)))
-                .ToList();
+            var result = new List<FaceIdentificationResult>();
+
+            foreach (var face in facesIdentified)
+            {
+                foreach (var candidate in face.candidates)
+                {
+                    var person = personsInGroup.Single(x => x.personId == candidate.personId);
+
+                    result.Add(new FaceIdentificationResult
+                    {
+                        id = person.personId,
+                        name = person.name,
+                        confidence = candidate.confidence,
+                        userData = person.userData
+                    });
+                }
+            }
+
+            return result;
         }
 
         private async Task<IList<FaceDetectModel>> DetectFacesInImage(byte[] image)

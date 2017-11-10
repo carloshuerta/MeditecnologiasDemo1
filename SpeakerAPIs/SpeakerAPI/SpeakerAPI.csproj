@@ -156,6 +156,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FaceDetectModel.cs" />
+    <Compile Include="Models\FaceIdentificationResult.cs" />
     <Compile Include="Models\FaceIdentifyModel.cs" />
     <Compile Include="Models\OperationResult.cs" />
     <Compile Include="Models\PersonModel.cs" />
