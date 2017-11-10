@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/UserAgenda.unity
+- path: Assets/Scenes/TestUI.unity
   isLoaded: 1
   isActive: 1
