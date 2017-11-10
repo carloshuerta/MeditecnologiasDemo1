@@ -16,6 +16,7 @@
     {
         private const string BASE_SPEAKER_URL = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/";
         private const string SUBSCRIPTION_KEY_HEADER = "Ocp-Apim-Subscription-Key";
+        private const string PERSON_GROUP_ID = "devs";
 
         private readonly HttpClient httpClient;
 
@@ -40,8 +41,8 @@
             this.httpClient.DefaultRequestHeaders.Add(SUBSCRIPTION_KEY_HEADER, subscriptionKey);
 
             var facesDetected = await DetectFacesInImage(image);
-            var facesIdentified = await IdentifyFacesInImage(facesDetected, "devs");
-            var personsIdentified = await IdentifyPersons(facesIdentified, "devs");
+            var facesIdentified = await IdentifyFacesInImage(facesDetected, PERSON_GROUP_ID);
+            var personsIdentified = await IdentifyPersons(facesIdentified, PERSON_GROUP_ID);
 
             return personsIdentified;
         }
