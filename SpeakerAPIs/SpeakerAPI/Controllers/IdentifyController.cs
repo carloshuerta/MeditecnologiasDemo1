@@ -50,7 +50,7 @@
             using (var content = new ByteArrayContent(audio))
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue(@"application/json");
-                var response = await httpClient.PostAsync(uri, content);
+                var response = await this.httpClient.PostAsync(uri, content);
 
                 if (!response.IsSuccessStatusCode)
                 { 
