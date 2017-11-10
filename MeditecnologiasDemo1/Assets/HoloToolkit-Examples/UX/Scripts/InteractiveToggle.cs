@@ -3,6 +3,7 @@
 
 using UnityEngine.Events;
 using HoloToolkit.Unity.InputModule;
+using UnityEngine;
 
 #if UNITY_WSA || UNITY_STANDALONE_WIN
 using UnityEngine.Windows.Speech;
@@ -24,6 +25,10 @@ namespace HoloToolkit.Examples.InteractiveElements
         /// Sets the button to act like a navigation button or toggle type button
         /// </summary>
         public bool AllowSelection = true;
+
+        public GameObject btn1;
+        public GameObject btn2;
+        public GameObject btn3;
 
         public bool Selection
         {
@@ -102,6 +107,9 @@ namespace HoloToolkit.Examples.InteractiveElements
                     if (!PassiveMode)
                     {
                         OnDeselection.Invoke();
+                        btn1.SetActive(!btn1.active);
+                        btn2.SetActive(!btn2.active); 
+                        btn3.SetActive(!btn3.active);
                     }
                     
                 }
@@ -111,6 +119,9 @@ namespace HoloToolkit.Examples.InteractiveElements
                     if (!PassiveMode)
                     {
                         OnSelection.Invoke();
+                        btn1.SetActive(!btn1.active);
+                        btn2.SetActive(!btn2.active);
+                        btn3.SetActive(!btn3.active);
                     }
 
                     if (!AllowDeselect)
