@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SchedulerRowEvents : MonoBehaviour, IInputClickHandler
 {
+    public int PersonId;
+
     public void OnInputClicked(InputClickedEventData eventData)
     {
         Debug.Log("Row clicked");
