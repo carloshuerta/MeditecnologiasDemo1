@@ -94,6 +94,7 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
         if (string.IsNullOrEmpty(httpClient.error))
         {
             var speaker = GetSpeaker(httpClient.text);
+            StaticSceneStates.AutenticatedName = speaker.name;
             this.InstructionsText.text = string.Format("Bienvenido, {0}! \nCargando su agenda. \nPor favor, espere.", speaker.name);
         }
         else
@@ -136,7 +137,8 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
 
     public void LoadSchedulerScene()
     {
-        SceneManager.LoadScene(@"Scenes\UserAgenda");
+        StaticSceneStates.Autenticated = true;
+        SceneManager.LoadScene("Start");
     }
 }
 
