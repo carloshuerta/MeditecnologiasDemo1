@@ -787,6 +787,7 @@
     <Compile Include="Assets\Scripts\Audio\AudioSaver.cs" />
     <Compile Include="Assets\Scripts\Audio\MicRecorderManager.cs" />
     <Compile Include="Assets\Scripts\Models\SpeakerIdentification.cs" />
+    <Compile Include="Assets\Scripts\PacientPhotoVerifier.cs" />
     <Compile Include="Assets\Scripts\Scheduler\SchedulerManager.cs" />
     <Compile Include="Assets\Scripts\Scheduler\SchedulerRowEvents.cs" />
   </ItemGroup>
