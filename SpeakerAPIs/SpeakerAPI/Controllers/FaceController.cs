@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
@@ -41,10 +42,25 @@
             this.httpClient.DefaultRequestHeaders.Add(SUBSCRIPTION_KEY_HEADER, subscriptionKey);
 
             var facesDetected = await DetectFacesInImage(image);
-            var facesIdentified = await IdentifyFacesInImage(facesDetected, PERSON_GROUP_ID);
-            var personsIdentified = await IdentifyPersons(facesIdentified, PERSON_GROUP_ID);
+            if (facesDetected.Count == 0)
+            {
+                this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No se detecto ninguna cara.");
+            }
+            else
+            {
+                var facesIdentified = await IdentifyFacesInImage(facesDetected, PERSON_GROUP_ID);
+                if (facesIdentified.Count == 0)
+                {
+                    this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No se identifico ninguna cara.");
+                }
+                else
+                {
+                    var personsIdentified = await IdentifyPersons(facesIdentified, PERSON_GROUP_ID);
+                    return personsIdentified;
+                }
+            }
 
-            return personsIdentified;
+            return default(IList<FaceIdentificationResult>);
         }
 
         private async Task<IList<FaceIdentificationResult>> IdentifyPersons(IList<FaceIdentifyModel> facesIdentified, string personGroupId)
