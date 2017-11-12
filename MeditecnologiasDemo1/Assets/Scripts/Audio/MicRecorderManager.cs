@@ -122,12 +122,36 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
                     name = "Sebastian Gambolati"
                 };
             }
+            if (json.Contains("610fa132-f9f5-4ccc-b89d-7480f291d62b"))
+            {
+                return new Speaker
+                {
+                    id = "610fa132-f9f5-4ccc-b89d-7480f291d62b",
+                    name = "Marcelo Halac"
+                };
+            }
+            if (json.Contains("89be2a5b-0580-4ff9-a8db-78221eb79078"))
+            {
+                return new Speaker
+                {
+                    id = "89be2a5b-0580-4ff9-a8db-78221eb79078",
+                    name = "Vadim Kotowicz"
+                };
+            }
             else if (json.Contains("7ec023b2-1e12-4c85-8b73-6b19aa782f83"))
             {
                 return new Speaker
                 {
                     id = "7ec023b2-1e12-4c85-8b73-6b19aa782f83",
                     name = "Carlos Huerta"
+                };
+            }
+                else if (json.Contains("3b1cf2c7-ee6b-480c-a203-43f1731a1fd7"))
+            {
+                return new Speaker
+                {
+                    id = "3b1cf2c7-ee6b-480c-a203-43f1731a1fd7",
+                    name = "Dennys Villa"
                 };
             }
         }
