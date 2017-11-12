@@ -519,7 +519,8 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLUseWasm: 0
   webGLCompressionFormat: 1
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    14: 
   platformArchitecture: {}
   scriptingBackend:
     Metro: 2
@@ -531,14 +532,14 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: MeditecnologiasDemo1
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
   metroCertificateNotAfter: 00e59c9c6d75d401
   metroApplicationDescription: MeditecnologiasDemo1
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: MeditecnologiasDemo1
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0

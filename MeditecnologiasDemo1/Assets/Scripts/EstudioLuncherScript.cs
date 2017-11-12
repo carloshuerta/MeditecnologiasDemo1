@@ -20,7 +20,7 @@ public class EstudioLuncherScript : MonoBehaviour, IInputClickHandler, IInputHan
         if (!meshCreated)
         {
             mesh.SetActive(true);
-            mesh = Instantiate(mesh, transform.position + transform.forward * 1, transform.rotation);
+            mesh = Instantiate(mesh, transform.position + transform.forward * 1 , Quaternion.Euler(-90,0,0));
             meshCreated = true;
         }
         else 
