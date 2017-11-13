@@ -93,7 +93,8 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
         //When return ...
         if (string.IsNullOrEmpty(httpClient.error))
         {
-            var speaker = GetSpeaker(httpClient.text);
+            var jsonResults = httpClient.text;
+            var speaker = GetSpeaker(jsonResults);
             StaticSceneStates.AutenticatedName = speaker.name;
             this.InstructionsText.text = string.Format("Bienvenido, {0}! \nCargando su agenda. \nPor favor, espere.", speaker.name);
         }
@@ -109,6 +110,8 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
 
     private Speaker GetSpeaker(string json)
     {
+        json = json.Replace("<id>k__BackingField", "id").Replace("<name>k__BackingField", "name");
+
         var speaker = JsonUtility.FromJson<Speaker>(json);
 
         if (speaker == null || string.IsNullOrEmpty(speaker.id))
@@ -146,7 +149,7 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
                     name = "Carlos Huerta"
                 };
             }
-                else if (json.Contains("3b1cf2c7-ee6b-480c-a203-43f1731a1fd7"))
+            else if (json.Contains("3b1cf2c7-ee6b-480c-a203-43f1731a1fd7"))
             {
                 return new Speaker
                 {

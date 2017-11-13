@@ -3,24 +3,19 @@
 [Serializable]
 public class Speaker
 {
-    public string id { get; set; }
+    public string id;
 
-    //public string locale { get; set; }
+    //public string locale;
 
-    //public double enrollmentSpeechTime { get; set; }
+    //public double enrollmentSpeechTime;
 
-    //public int remainingEnrollmentSpeechTime { get; set; }
+    //public int remainingEnrollmentSpeechTime;
 
-    //public DateTime createdDateTime { get; set; }
+    //public DateTime createdDateTime;
 
-    //public DateTime lastActionDateTime { get; set; }
+    //public DateTime lastActionDateTime;
 
-    //public string enrollmentStatus { get; set; }
+    //public string enrollmentStatus;
 
-    public string name { get; set; }
-}
-
-public class SpeakerValue
-{
-    public Speaker values { get; set; }
+    public string name;
 }
