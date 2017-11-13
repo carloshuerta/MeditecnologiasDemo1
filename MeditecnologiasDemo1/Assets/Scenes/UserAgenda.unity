@@ -790,6 +790,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 866418944}
     m_Modifications:
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.699
@@ -800,7 +805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.7999878
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -847,6 +852,31 @@ Prefab:
         type: 2}
       propertyPath: Default
       value: Ver Estudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 626838975}
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Load
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
@@ -1217,7 +1247,7 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0,
     type: 2}
   m_PrefabInternal: {fileID: 316490611}
---- !u!114 &626838978
+--- !u!114 &626838975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1225,10 +1255,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 626838973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104f64c59eb594e44a88c7fff85561bf, type: 3}
+  m_Script: {fileID: 11500000, guid: c68e474f44932c443bd9e639235bd4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 1903634587133576, guid: 654a65f6d283d31458616686e1a03aa4, type: 2}
+  Default: VerEstudio
 --- !u!1 &656189040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1751,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 866418944}
     m_Modifications:
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.816
@@ -1777,6 +1812,16 @@ Prefab:
     - target: {fileID: 1000014001103040, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013833810220, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
@@ -2034,7 +2079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68e474f44932c443bd9e639235bd4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Default: ReconocerPaciente
+  Default: PacientData
 --- !u!1 &1208037927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2686,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.8
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalRotation.x
