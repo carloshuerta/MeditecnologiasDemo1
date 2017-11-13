@@ -785,7 +785,9 @@
     <Compile Include="Assets\HoloToolkit-Examples\UX\Scripts\Widgets\TextureThemeWidget.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioSaver.cs" />
     <Compile Include="Assets\Scripts\Audio\MicRecorderManager.cs" />
-    <Compile Include="Assets\Scripts\EstudioLuncherScript.cs" />
+    <Compile Include="Assets\Scripts\EstudioLauncherScript.cs" />
+    <Compile Include="Assets\Scripts\HologramRotator.cs" />
+    <Compile Include="Assets\Scripts\HologramZoom.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />
     <Compile Include="Assets\Scripts\MainSceneScript.cs" />
     <Compile Include="Assets\Scripts\Models\FaceIdentification.cs" />
