@@ -100,7 +100,7 @@ public class PacientPhotoVerifier : MonoBehaviour
         StartCoroutine(RunFaceAPIAnalysis(image));
     }
 
-    private const string FaceAPIUriBase = "http://localhost:6780"; //"http://meditec-demo1.azurewebsites.net";
+    private const string FaceAPIUriBase = "http://meditec-demo1.azurewebsites.net";
     private const string FaceAPIKey = "89ca645cd8f343f9b08d5d4f720fd6b9";
 
     private IEnumerator RunFaceAPIAnalysis(byte[] image)
