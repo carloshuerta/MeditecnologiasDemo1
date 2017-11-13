@@ -1,26 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-//using Assets.Scripts;
+using HoloToolkit.Examples.InteractiveElements;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR.WSA.WebCam;
 
-public class PacientPhotoVerifier : MonoBehaviour {
-
-    //public Text TagsTextbox;
-    //public Text ImageCaptionTextbox;
-    //public Text FaceApiCaptionTextbox;
+public class PacientPhotoVerifier : MonoBehaviour
+{
+    private const string FILE_NAME = @"cognitive_analysis.jpg";
 
     private PhotoCapture photoCapture = null;
 
-    private const string FILE_NAME = @"cognitive_analysis.jpg";
+    public InteractiveToggle pacientVerifiedCheckBox;
 
     public void CaptureImageAndValidate()
     {
         CreatePhotoCapture();
+    }
+
+    private void Start()
+    {
+        this.pacientVerifiedCheckBox.HasSelection = false;
     }
 
     // This method request to create a PhotoCapture object.
@@ -99,7 +100,7 @@ public class PacientPhotoVerifier : MonoBehaviour {
         StartCoroutine(RunFaceAPIAnalysis(image));
     }
 
-    private const string FaceAPIUriBase = "http://meditec-demo1.azurewebsites.net";
+    private const string FaceAPIUriBase = "http://localhost:6780"; //"http://meditec-demo1.azurewebsites.net";
     private const string FaceAPIKey = "89ca645cd8f343f9b08d5d4f720fd6b9";
 
     private IEnumerator RunFaceAPIAnalysis(byte[] image)
@@ -120,16 +121,25 @@ public class PacientPhotoVerifier : MonoBehaviour {
         // http://answers.unity3d.com/questions/1148632/jsonutility-and-arrays-error-json-must-represent-a.html
         var jsonResults = "{\"values\":" + httpClient.text + "}";
 
+        //TODO: Delete file after it was sent.
+
         if (string.IsNullOrEmpty(httpClient.error))
         {
             FaceAPIResult result = GetPacientData(jsonResults);
-            
+
             if (result == null || result.values.Count() == 0)
             {
                 Debug.Log("No se encontro ninguna cara o persona enrolada. Reintentando.");
 
                 // Retry in 5 seconds.
                 Invoke("CreatePhotoCapture", 5f);
+            }
+            else
+            {
+                if (result.values.Any(x => x.HCId == 635063))
+                {
+                    this.pacientVerifiedCheckBox.HasSelection = true;
+                }
             }
         }
         else
@@ -165,24 +175,4 @@ public class PacientPhotoVerifier : MonoBehaviour {
 
         return result;
     }
-}
-
-[Serializable]
-public class FaceAPIResult
-{
-    public FaceIdentification[] values;
-}
-
-[Serializable]
-public class FaceIdentification
-{
-    public string id;
-
-    public string name;
-
-    public string confidence;
-
-    public string userData;
-
-    public long HCId;
 }

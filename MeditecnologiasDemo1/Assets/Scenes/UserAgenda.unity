@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 47631251}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8270264, y: 0.15400696, z: -0.0000009536743}
+  m_LocalPosition: {x: 1.7930298, y: 0.11199951, z: -0.0000009536743}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0}
   m_Children: []
   m_Father: {fileID: 315372437}
@@ -265,7 +265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.827, y: -0.146}
+  m_AnchoredPosition: {x: 1.793, y: -0.188}
   m_SizeDelta: {x: 2000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &47631253
@@ -308,15 +308,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: 'Sebastian Gambolati
-
-'
+  m_Text: Gustavo Bugna
 --- !u!222 &47631255
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -421,7 +419,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 166407002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8239746, y: 0.16000366, z: -0.0000009536743}
+  m_LocalPosition: {x: 3.539978, y: 0.15100098, z: -0.0000009536743}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0}
   m_Children: []
   m_Father: {fileID: 866418944}
@@ -429,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 3.824, y: -0.14}
-  m_SizeDelta: {x: 2000, y: 300}
+  m_AnchoredPosition: {x: 3.54, y: -0.149}
+  m_SizeDelta: {x: 1800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &166407004
 MonoBehaviour:
@@ -467,18 +465,20 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 70
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1.5
-  m_Text: Estado de la operacion
+    m_LineSpacing: 1
+  m_Text: 'Instrumentos listos. Equipo listo.
+
+    Anestesia lista. Esperando paciente.'
 --- !u!222 &166407006
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 213495479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8220215, y: 0.07800293, z: -0.0000009536743}
+  m_LocalPosition: {x: 1.7969971, y: 0.12400055, z: -0.0000009536743}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0}
   m_Children: []
   m_Father: {fileID: 61295223}
@@ -565,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.822, y: -0.222}
+  m_AnchoredPosition: {x: 1.797, y: -0.176}
   m_SizeDelta: {x: 2000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &213495481
@@ -614,7 +614,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: 'ID HI: 635063 - Fecha Nacimiento: 20/04/1980 - DNI: 28.080.291'
+  m_Text: 'ID HI: 125198 - Fecha Nacimiento: 18/11/1981 - DNI: 28.080.291'
 --- !u!222 &213495483
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -792,11 +792,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.816
+      value: 4.699
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.1837
+      value: 0.196
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -824,15 +824,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.3164647
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.3164638
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1.3164638
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000014001103040, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_Name
@@ -842,6 +842,11 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: Estudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374334392891108, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: Default
+      value: Ver Estudio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
@@ -871,7 +876,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 325683410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8220215, y: 0.07800293, z: -0.0000009536743}
+  m_LocalPosition: {x: 1.7030029, y: 0.117996216, z: -0.0000009536743}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0}
   m_Children: []
   m_Father: {fileID: 866418944}
@@ -879,8 +884,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.822, y: -0.222}
-  m_SizeDelta: {x: 2000, y: 200}
+  m_AnchoredPosition: {x: 1.703, y: -0.182}
+  m_SizeDelta: {x: 1800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325683412
 MonoBehaviour:
@@ -960,7 +965,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 338575244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8220215, y: 0.07800293, z: -0.0000009536743}
+  m_LocalPosition: {x: 1.7949829, y: 0.10900116, z: -0.0000009536743}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0}
   m_Children: []
   m_Father: {fileID: 315372437}
@@ -968,7 +973,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.822, y: -0.222}
+  m_AnchoredPosition: {x: 1.795, y: -0.191}
   m_SizeDelta: {x: 2000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338575246
@@ -1017,7 +1022,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: 'ID HI: 635063 - Fecha Nacimiento: 20/04/1980 - DNI: 28.080.291'
+  m_Text: 'ID HI: 78157 - Fecha Nacimiento: 02/07/1980 - DNI: 28.563.447'
 --- !u!222 &338575248
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1106,7 +1111,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: Estado de la operacion
+  m_Text: Esperando quirofano
 --- !u!222 &517627588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1195,7 +1200,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: Estado de la operacion
+  m_Text: Esperando quirofano
 --- !u!222 &608683443
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1543,7 +1548,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 860210358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8270264, y: 0.15400696, z: -0.0000009536743}
+  m_LocalPosition: {x: 1.7969971, y: 0.12600708, z: -0.0000009536743}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0}
   m_Children: []
   m_Father: {fileID: 61295223}
@@ -1551,7 +1556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.827, y: -0.146}
+  m_AnchoredPosition: {x: 1.797, y: -0.174}
   m_SizeDelta: {x: 2000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &860210360
@@ -1594,15 +1599,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: 'Sebastian Gambolati
-
-'
+  m_Text: Carlos Huerta
 --- !u!222 &860210362
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1771,6 +1774,10 @@ Prefab:
       propertyPath: m_Text
       value: Estado Quirofano
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014001103040, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
   m_IsPrefabParent: 0
@@ -1868,7 +1875,7 @@ Transform:
   m_GameObject: {fileID: 991679813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.629, y: 0.151, z: -0.0000009536743}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
+  m_LocalScale: {x: 0.033, y: 0.033, z: 1}
   m_Children: []
   m_Father: {fileID: 315372437}
   m_RootOrder: 1
@@ -1907,12 +1914,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb861319db2b821478341dca819a321e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9cd46e76362bb364b91173a4695832d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 8.98, y: 8.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2126,7 +2133,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1350374985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8270264, y: 0.15400696, z: -0.0000009536743}
+  m_LocalPosition: {x: 1.6959839, y: 0.15400696, z: -0.0000009536743}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0}
   m_Children: []
   m_Father: {fileID: 866418944}
@@ -2134,8 +2141,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.827, y: -0.146}
-  m_SizeDelta: {x: 2000, y: 300}
+  m_AnchoredPosition: {x: 1.696, y: -0.146}
+  m_SizeDelta: {x: 1800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350374987
 MonoBehaviour:
@@ -2206,11 +2213,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.164
+      value: -0.257
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: 0.991
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2275,6 +2282,14 @@ Prefab:
       propertyPath: m_Text
       value: Volver
       objectReference: {fileID: 0}
+    - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
   m_IsPrefabParent: 0
@@ -2302,7 +2317,7 @@ Transform:
   m_GameObject: {fileID: 1482310795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.629, y: 0.151, z: -0.0000009536743}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
+  m_LocalScale: {x: 0.048, y: 0.048, z: 1}
   m_Children: []
   m_Father: {fileID: 61295223}
   m_RootOrder: 1
@@ -2341,7 +2356,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb861319db2b821478341dca819a321e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 256ce6d55c29d7f4e93730bc8b8f89c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2618,11 +2633,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.816
+      value: 4.209
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.29824
+      value: 0.199
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2654,15 +2669,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.3164647
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.3164638
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4000010788874836, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1.3164638
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 102000013541704904, guid: 1208d39814b498d47a41952deff3abd0,
         type: 2}
@@ -2693,6 +2708,23 @@ Prefab:
         type: 2}
       propertyPath: OnSelectEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916604103796156, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012165958818, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012528443510, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374334392891108, guid: 1208d39814b498d47a41952deff3abd0,
+        type: 2}
+      propertyPath: Default
+      value: Reconocer Paciente
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1208d39814b498d47a41952deff3abd0, type: 2}
