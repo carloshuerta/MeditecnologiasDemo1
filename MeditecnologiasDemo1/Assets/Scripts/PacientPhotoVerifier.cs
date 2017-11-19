@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using HoloToolkit.Examples.InteractiveElements;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.WSA.WebCam;
 
 public class PacientPhotoVerifier : MonoBehaviour
@@ -13,6 +14,7 @@ public class PacientPhotoVerifier : MonoBehaviour
     private PhotoCapture photoCapture = null;
 
     public InteractiveToggle pacientVerifiedCheckBox;
+    public Text TextVerificationStatus;
 
     public void CaptureImageAndValidate()
     {
@@ -21,6 +23,7 @@ public class PacientPhotoVerifier : MonoBehaviour
 
     private void Start()
     {
+        this.TextVerificationStatus.gameObject.SetActive(false);
         this.pacientVerifiedCheckBox.HasSelection = false;
     }
 
@@ -39,6 +42,9 @@ public class PacientPhotoVerifier : MonoBehaviour
         this.photoCapture = captureObject;
 
         Resolution cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
+
+        this.TextVerificationStatus.gameObject.SetActive(true);
+        this.TextVerificationStatus.text = "Obteniendo informacion de la camara.";
 
         CameraParameters c = new CameraParameters()
         {
@@ -59,10 +65,12 @@ public class PacientPhotoVerifier : MonoBehaviour
             string filename = string.Format(FILE_NAME);
             string filePath = Path.Combine(Application.persistentDataPath, filename);
             this.photoCapture.TakePhotoAsync(filePath, PhotoCaptureFileOutputFormat.JPG, this.OnCapturedPhotoToDisk);
+            this.TextVerificationStatus.text = "Tomando fotografia.";
         }
         else
         {
             Debug.LogError("Unable to start photo mode.");
+            this.TextVerificationStatus.text = "No se pudo iniciar el modo foto.";
         }
     }
 
@@ -75,6 +83,8 @@ public class PacientPhotoVerifier : MonoBehaviour
         {
             string filename = string.Format(FILE_NAME);
             string filePath = Path.Combine(Application.persistentDataPath, filename);
+
+            this.TextVerificationStatus.text = "Procesando fotografia.";
 
             byte[] image = File.ReadAllBytes(filePath);
 
@@ -112,6 +122,8 @@ public class PacientPhotoVerifier : MonoBehaviour
 
         string FaceAPIURL = FaceAPIUriBase + "/api/Face";
         WWW httpClient = new WWW(FaceAPIURL, image, headers);
+        this.TextVerificationStatus.text = "Buscando rostros.";
+
         yield return httpClient;
 
         //When return ...
@@ -131,6 +143,8 @@ public class PacientPhotoVerifier : MonoBehaviour
             {
                 Debug.Log("No se encontro ninguna cara o persona enrolada. Reintentando.");
 
+                this.TextVerificationStatus.text = "No se encontro ningun rostro conocido. Reintentando.";
+
                 // Retry in 5 seconds.
                 Invoke("CreatePhotoCapture", 5f);
             }
@@ -145,6 +159,8 @@ public class PacientPhotoVerifier : MonoBehaviour
         else
         {
             Debug.Log(httpClient.error);
+
+            this.TextVerificationStatus.text = "Error al llamar al servidor. Reintentando.";
 
             //Retry...
             CreatePhotoCapture();
@@ -172,6 +188,8 @@ public class PacientPhotoVerifier : MonoBehaviour
 
             }
         }
+
+        this.TextVerificationStatus.text = string.Format("Se detectaron {0} rostros conocidos.", result.values.Count());
 
         return result;
     }
