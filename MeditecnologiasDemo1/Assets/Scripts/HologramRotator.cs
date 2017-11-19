@@ -4,6 +4,7 @@ using UnityEngine;
 public class HologramRotator : MonoBehaviour, IInputClickHandler, IHoldHandler
 {
     private bool isHolding;
+    private Transform pivotToRotate;
 
     public Transform HologramToRotate;
     public int RotationSpeed = 50;
@@ -22,6 +23,11 @@ public class HologramRotator : MonoBehaviour, IInputClickHandler, IHoldHandler
     public void OnHoldStarted(HoldEventData eventData)
     {
         this.isHolding = true;
+    }
+
+    private void Start()
+    {
+        this.pivotToRotate = GameObject.FindGameObjectWithTag("pivot").GetComponent<Transform>();
     }
 
     private void Update()
@@ -44,13 +50,13 @@ public class HologramRotator : MonoBehaviour, IInputClickHandler, IHoldHandler
         switch (this.RotationDirection)
         {
             case RotationDirectionEnum.Up:
-                direction = Vector3.left;
-                break;
-            case RotationDirectionEnum.Down:
                 direction = Vector3.right;
                 break;
+            case RotationDirectionEnum.Down:
+                direction = Vector3.left;
+                break;
             case RotationDirectionEnum.Right:
-                direction = Vector3.down;
+                direction = Vector3.down;                
                 break;
             case RotationDirectionEnum.Left:
                 direction = Vector3.up;
@@ -59,7 +65,7 @@ public class HologramRotator : MonoBehaviour, IInputClickHandler, IHoldHandler
                 break;
         }
 
-        this.HologramToRotate.Rotate(direction, Time.deltaTime * speed);
+        this.HologramToRotate.RotateAround(this.pivotToRotate.position, direction, Time.deltaTime * speed);
     }
 }
 
