@@ -31,7 +31,7 @@
         }
 
         [HttpPost]
-        public async Task<SpeakerResult> Post()
+        public async Task<IHttpActionResult> Post()
         {
             SpeakersRepository speakersRepository = new SpeakersRepository();
             var speakerList = speakersRepository.ListSpeakers();
@@ -53,8 +53,8 @@
                 var response = await this.httpClient.PostAsync(uri, content);
 
                 if (!response.IsSuccessStatusCode)
-                { 
-                    this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, await response.Content.ReadAsStringAsync());
+                {
+                    return InternalServerError(new Exception(await response.Content.ReadAsStringAsync()));
                 }
 
                 if (response.Headers.Contains(OPERATION_LOCATION_HEADER))
@@ -70,13 +70,21 @@
 
                         if (operation.status == OperationStatus.succeeded)
                         {
-                            var identifiedSpeaker = speakerList.Single(x => x.identificationProfileId == operation.processingResult?.identifiedProfileId);
-
-                            return new SpeakerResult
+                            if (operation.processingResult.confidence == IdentificationConfidence.Normal ||
+                                operation.processingResult.confidence == IdentificationConfidence.High)
                             {
-                                id = identifiedSpeaker.identificationProfileId,
-                                name = identifiedSpeaker.Name
-                            };
+                                var identifiedSpeaker = speakerList.Single(x => x.identificationProfileId == operation.processingResult?.identifiedProfileId);
+
+                                return Ok(new SpeakerResult
+                                {
+                                    id = identifiedSpeaker.identificationProfileId,
+                                    name = identifiedSpeaker.Name
+                                });
+                            }
+                            else
+                            {
+                                return BadRequest("No se pudo detectar la identidad. Por favor, vuelva a intentarlo.");
+                            }
                         }
                         // TODO: Add error handling.
 
@@ -85,8 +93,8 @@
                     }
                 }
             }
-            
-            return default(SpeakerResult);
+
+            return BadRequest();
         }
 
         private async Task<string> GetOperationDetailAsync(string operationURL, string subscripionKey)
