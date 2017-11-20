@@ -87,6 +87,8 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
         };
 
         string SpeakerAPIURL = "http://meditec-demo1.azurewebsites.net/api/Identify";
+        //string SpeakerAPIURL = "http://localhost:6780/api/Identify";
+
         WWW httpClient = new WWW(SpeakerAPIURL, audio, headers);
         yield return httpClient;
 
@@ -97,15 +99,24 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
             var speaker = GetSpeaker(jsonResults);
             StaticSceneStates.AutenticatedName = speaker.name;
             this.InstructionsText.text = string.Format("Bienvenido, {0}! \nCargando su agenda. \nPor favor, espere.", speaker.name);
+
+            this.LoadingGameObject.SetActive(false);
+
+            Invoke("LoadSchedulerScene", 3f);
         }
         else
         {
-            this.InstructionsText.text = "Error: " + httpClient.error;
+            if (httpClient.error == "400 Bad Request")
+            {
+                var response = JsonUtility.FromJson<ErrorMessageResponse>(httpClient.text);
+                this.InstructionsText.text = response.Error;
+            }
+            // Add more error status code handling...
+            else
+            {
+                this.InstructionsText.text = "Error: " + httpClient.error;
+            }
         }
-
-        this.LoadingGameObject.SetActive(false);
-
-        Invoke("LoadSchedulerScene", 3f);
     }
 
     private Speaker GetSpeaker(string json)
