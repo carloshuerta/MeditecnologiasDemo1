@@ -19,3 +19,9 @@ public class FaceIdentification
 
     public long HCId;
 }
+
+[Serializable]
+public class ErrorMessageResponse
+{
+    public string Error { get; set; }
+}

@@ -798,6 +798,14 @@
     <Compile Include="Assets\Scripts\StaticSceneStates.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Editor\Simplygon Bumped Specular.shader" />
+    <None Include="Assets\Editor\Simplygon Specular.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Bumped Diffuse.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Bumped Specular Detail.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Bumped Specular.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Diffuse.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Specular.shader" />
+    <None Include="Assets\Editor\SimplygonReadMe.txt" />
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\VolumeRenderShared.cginc" />
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\VolumeRenderSlice.shader" />

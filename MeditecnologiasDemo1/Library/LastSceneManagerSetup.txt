@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/PacientData.unity
+- path: Assets/Scenes/AuthenticateUser.unity
   isLoaded: 1
   isActive: 1

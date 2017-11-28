@@ -274,6 +274,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Simplygon">
+      <HintPath>Assets/Editor/Simplygon.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets/HoloToolkit/Utilities/Scripts/GLTF/Plugins/JsonNet/Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -354,6 +357,14 @@
     <Compile Include="Assets\HoloToolkit-Examples\Medical\Editor\VolumeInformationEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Editor\Simplygon Bumped Specular.shader" />
+    <None Include="Assets\Editor\Simplygon Specular.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Bumped Diffuse.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Bumped Specular Detail.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Bumped Specular.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Diffuse.shader" />
+    <None Include="Assets\Editor\Simplygon Transparent Specular.shader" />
+    <None Include="Assets\Editor\SimplygonReadMe.txt" />
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\VolumeRenderShared.cginc" />
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\VolumeRenderSlice.shader" />

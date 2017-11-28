@@ -1,4 +1,5 @@
 Metro
+67e32951adbd43d556c676fe3b3aa03f Assembly-CSharp.dll:.HologramRotator
 7abde016883951c4ca4e7c44ce6adb2c Assembly-CSharp.dll:HoloToolkit.Unity.SceneLauncher
 2fb39702360b86b0d9d52bce766883c8 Assembly-CSharp.dll:GLTF.GLTFComponent
 9dbdd49cc112cd338861fe912671c7e7 Assembly-CSharp.dll:HoloToolkit.Examples.InteractiveElements.StringInteractiveTheme
@@ -231,7 +232,6 @@ ce610f1f07fce1af31f7a0c83c795c10 Assembly-CSharp.dll:HoloToolkit.Examples.Intera
 3f16ec9c260615d45770eac30ece2ad5 Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.SpeechInputSource
 055f44f3f660cf5de32a98172a9b8825 Assembly-CSharp.dll:HoloToolkit.Unity.FpsDisplay
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.Tests.HapticsTest
-7d1f9e0022181d9f951b941c8c453504 Assembly-CSharp.dll:.EstudioLuncherScript
 7c89456c5bee66ad1a98ab2c91d6339e Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.Examples.Grabbables.Grabber
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.KeyboardManager
 dfa416d091c6a74c4e4ef8229469c6ec Assembly-CSharp.dll:HoloToolkit.Sharing.VoiceChat.MicrophoneTransmitter
@@ -402,6 +402,7 @@ f7cf9e253f09e4ec8daa4fc98b6daae3 Assembly-CSharp.dll:HoloToolkit.UI.Keyboard.Key
 ce610f1f07fce1af31f7a0c83c795c10 Assembly-CSharp.dll:HoloToolkit.Examples.InteractiveElements.InteractiveWidgetStateTest
 24ccda7d9768f21e49a1e5334c1761a6 Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.Tests.OnFocusEvent
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.Tests.TextToSpeechTest
+20963db91c952aad8ddcd8d5a1fba9bd Assembly-CSharp.dll:.HologramZoom
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -499,6 +500,7 @@ a9e1c36c671666e79706791e556d5100 Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehav
 c3b13a1563717fd56ea996985a5921ba Assembly-CSharp.dll:.LoadScene
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Sharing.Tests.UserNotifications
 f71353b76b26bc1e3398d6a4fc41f790 Assembly-CSharp.dll:HoloToolkit.Examples.Prototyping.CycleDots
+9546e1d09142836ec9b8893bbf849b27 Assembly-CSharp.dll:.PacientPhotoVerifier
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Sharing.Tests.RemoteHeadManager
 c1cc82b2110e41150c5ad19a512334bd Assembly-CSharp.dll:HoloToolkit.Examples.Prototyping.FadeColors
 9a0abb9f7109ec47e2c7bfd5d401ded8 Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.Examples.Grabbables.GrabbableSimple

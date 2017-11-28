@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PacientData.unity
     guid: 9963bd900cb324d469938d31f779c328
+  - enabled: 1
+    path: Assets/Scenes/VerEstudio.unity
+    guid: fd92f9ae9f3196b44a9cce8e68e8f72e
