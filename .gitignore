@@ -9,3 +9,7 @@
 /SpeakerAPIs/SpeakerAPI/bin
 /MeditecnologiasDemo1/Library/PlayerDataCache
 /MeditecnologiasDemo1/Library
+/SpeakerAPIs/SurgeonPatient.DataAccess/bin/Debug
+/SpeakerAPIs/SurgeonPatient.DataAccess/obj/Debug
+/SpeakerAPIs/SpeakerAPI/App_Data/SurgeonPatient.DataAccess.Context.DBContext_log.ldf
+/SpeakerAPIs/SpeakerAPI/App_Data/SurgeonPatient.DataAccess.Context.DBContext.mdf
