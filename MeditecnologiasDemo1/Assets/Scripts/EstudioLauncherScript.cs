@@ -1,9 +1,6 @@
-﻿using HoloToolkit.Examples.InteractiveElements;
-using HoloToolkit.Unity.InputModule;
-using System.Collections;
-using System.Collections.Generic;
+﻿using MixedRealityToolkit.InputModule.EventData;
+using MixedRealityToolkit.InputModule.InputHandlers;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EstudioLuncherScript : MonoBehaviour, IInputClickHandler, IInputHandler
 {
@@ -30,7 +27,10 @@ public class EstudioLuncherScript : MonoBehaviour, IInputClickHandler, IInputHan
         Debug.Log("nos vamosss");
     }
     public void OnInputDown(InputEventData eventData)
-    { }
+    {
+    }
+
     public void OnInputUp(InputEventData eventData)
-    { }
+    {
+    }
 }

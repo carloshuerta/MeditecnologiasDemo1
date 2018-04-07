@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using HoloToolkit.Examples.InteractiveElements;
+using MixedRealityToolkit.Examples.UX;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.WSA.WebCam;

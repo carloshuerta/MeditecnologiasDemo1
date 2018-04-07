@@ -1,13 +1,13 @@
-﻿using HoloToolkit.Unity.InputModule;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using MixedRealityToolkit.InputModule;
+using MixedRealityToolkit.InputModule.EventData;
+using MixedRealityToolkit.InputModule.InputHandlers;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Net.Sockets;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MicRecorderManager : MonoBehaviour, IHoldHandler
 {

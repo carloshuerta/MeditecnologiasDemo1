@@ -40,7 +40,7 @@ namespace MixedRealityToolkit.Sharing
 
         public string GetDataModelName(Type type)
         {
-            var typeInfo = type.GetTypeInfo();
+            var typeInfo = ReflectionExtensions.GetTypeInfo(type);
             string retVal;
             dataModelTypeToName.TryGetValue(typeInfo, out retVal);
             return retVal;
