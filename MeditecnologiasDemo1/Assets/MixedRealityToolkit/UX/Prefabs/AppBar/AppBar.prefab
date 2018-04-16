@@ -159,60 +159,13 @@ MonoBehaviour:
   HoverOffsetZ: 0
   SquareButtonPrefab: {fileID: 1210820392543280, guid: 40da8a1b3b26ba743b892d890b95a9f9,
     type: 2}
-  UseRemove: 0
-  UseAdjust: 0
+  UseRemove: 1
+  UseAdjust: 1
   UseHide: 1
-  DisplayType: 1
+  DisplayType: 0
   State: 0
   CustomButtonIconProfile: {fileID: 0}
-  buttons:
-  - DefaultPosition: 1
-    ManipulationPosition: 1
-    Type: 0
-    Name: Authenticate
-    Icon: ObjectCollectionSphere
-    Text: Autenticar
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - DefaultPosition: 2
-    ManipulationPosition: 2
-    Type: 0
-    Name: ViewPatients
-    Icon: ObjectCollectionDefault
-    Text: Pacientes
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - DefaultPosition: 3
-    ManipulationPosition: 3
-    Type: 0
-    Name: ViewStudies
-    Icon: ObjectCollectionDefault
-    Text: Estudios
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  buttons: []
   buttonParent: {fileID: 4691479528535670}
   baseRenderer: {fileID: 1275815092924048}
   backgroundBar: {fileID: 1093294406509342}

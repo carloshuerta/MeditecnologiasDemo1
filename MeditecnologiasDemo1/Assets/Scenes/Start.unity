@@ -1163,7 +1163,7 @@ MonoBehaviour:
   handMotionToRotate: 0
   boundingBoxPrefab: {fileID: 114030465538688920, guid: 865a8ded6c47efd4285f04f3aebe99e9,
     type: 2}
-  appBarPrefab: {fileID: 114050950401502068, guid: aa610ada334bff640a535f0d23a9a15c,
+  appBarPrefab: {fileID: 114050950401502068, guid: 252eca8728a0f1146aaf625f4dd0c039,
     type: 2}
 --- !u!65 &1447185231
 BoxCollider:
