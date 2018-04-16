@@ -1617,7 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageSize: 6
-  CurrentDateTextBox: {fileID: 30382739}
+  CurrentDateTextBox: {fileID: 0}
   PatientDataRowPrefab: {fileID: 1685829021603332, guid: 8134985781421964b86fd5bf29a8262d,
     type: 2}
   ObjectParent: {fileID: 1272610633}
@@ -1734,7 +1734,6 @@ GameObject:
   - component: {fileID: 866418946}
   - component: {fileID: 866418945}
   - component: {fileID: 866418947}
-  - component: {fileID: 866418948}
   m_Layer: 5
   m_Name: RegistroPaciente 1
   m_TagString: Untagged
@@ -1813,18 +1812,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.0130715, y: 0.32167292, z: 1}
   m_Center: {x: 2.5010583, y: 0.15535855, z: 0}
---- !u!114 &866418948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 866418943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5770a6f4b657b3b4e90d9c1329ca0623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PersonId: 0
 --- !u!1001 &886019822
 Prefab:
   m_ObjectHideFlags: 0
@@ -2334,8 +2321,8 @@ MonoBehaviour:
   IgnoreInactiveTransforms: 1
   Radius: 3.06
   Rows: 4
-  CellWidth: 3
-  CellHeight: 0.6
+  CellWidth: 3.5
+  CellHeight: 0.4
   SphereMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   CylinderMesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1272610634
@@ -2345,7 +2332,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272610632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}

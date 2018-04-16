@@ -14,20 +14,18 @@ public class SchedulerManager : MonoBehaviour
     private int PageIndex = 0;
 
     public int PageSize = 6;
-    public Text CurrentDateTextBox;
     public GameObject PatientDataRowPrefab;
     public ObjectCollection ObjectParent;
 
     // Use this for initialization
     void Start()
     {
-        this.CurrentDateTextBox.text = DateTime.Now.Date.ToString("dd/MM/yyyy");
-
         var turnPatients = GetPatients(this.PageIndex, this.PageSize);
 
         foreach (var turnPatient in turnPatients.OrderBy(x => x.TurnDate))
         {
             Initialize(turnPatient.TurnDate,
+                turnPatient.Patient.PatientId,
                 turnPatient.Patient.Name,
                 turnPatient.Patient.InternalID,
                 turnPatient.Patient.BirthDate,
@@ -50,6 +48,7 @@ public class SchedulerManager : MonoBehaviour
                 Observation = "Instrumentos listos.\nEquipo listo.\nAnestesia lista.\nEsperando paciente.",
                 Patient = new Patient
                 {
+                    PatientId = 1,
                     Name = "Sebastian Gambolati",
                     BirthDate = DateTime.ParseExact("20/04/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     DocumentType = "DNI",
@@ -63,6 +62,7 @@ public class SchedulerManager : MonoBehaviour
                 Observation = "Esperando quirófano.",
                 Patient = new Patient
                 {
+                    PatientId = 2,
                     Name = "Gustavo Bugna",
                     BirthDate = DateTime.ParseExact("02/07/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     DocumentType = "DNI",
@@ -76,6 +76,7 @@ public class SchedulerManager : MonoBehaviour
                 Observation = "Esperando quirófano.",
                 Patient = new Patient
                 {
+                    PatientId = 3,
                     Name = "Carlos Huerta",
                     BirthDate = DateTime.ParseExact("18/11/1981", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     DocumentType = "DNI",
@@ -83,13 +84,13 @@ public class SchedulerManager : MonoBehaviour
                     InternalID = 125198
                 }
             },
-
             new PatientTurn
             {
                 TurnDate = DateTime.Now.Date.AddHours(13),
                 Observation = "Esperando quirófano.",
                 Patient = new Patient
                 {
+                    PatientId = 4,
                     Name = "Saira Ruiz",
                     BirthDate = DateTime.ParseExact("01/02/1978", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     DocumentType = "DNI",
@@ -103,6 +104,7 @@ public class SchedulerManager : MonoBehaviour
                 Observation = "Cirugia finalizada.",
                 Patient = new Patient
                 {
+                    PatientId = 5,
                     Name = "Lidia Bermudez",
                     BirthDate = DateTime.ParseExact("13/11/1956", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     DocumentType = "DNI",
@@ -116,6 +118,7 @@ public class SchedulerManager : MonoBehaviour
                 Observation = "Cirugia finalizada.",
                 Patient = new Patient
                 {
+                    PatientId = 6,
                     Name = "Hugo Alvornoz",
                     BirthDate = DateTime.ParseExact("12/07/1966", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     DocumentType = "DNI",
@@ -127,7 +130,8 @@ public class SchedulerManager : MonoBehaviour
     }
 
     public void Initialize(DateTime turnHour, 
-        string name, 
+        int patientId,
+        string patientName, 
         long internalID, 
         DateTime birthDate, 
         string documentType, 
@@ -140,13 +144,19 @@ public class SchedulerManager : MonoBehaviour
         var txtName = newRow.transform.Find("txtName").gameObject;
         var txtPatientData = newRow.transform.Find("txtPatientData").gameObject;
         var txtOtherData = newRow.transform.Find("txtOtherData").gameObject;
+        var btnViewStudies = newRow.transform.Find("hbtnViewStudies").gameObject;
+        var btnViewPatientData = newRow.transform.Find("hbtnViewPatientData").gameObject;
+
         // TODO: Use to set the corresponding patient photo.
         var imgPhoto = newRow.transform.Find("Photo").gameObject;
 
         txtHour.GetComponentInChildren<Text>().text = turnHour.ToString("HH:mm");
-        txtName.GetComponentInChildren<Text>().text = name;
+        txtName.GetComponentInChildren<Text>().text = patientName;
         txtPatientData.GetComponentInChildren<Text>().text = string.Format(OTHER_DATA_FORMAT, internalID, birthDate, documentType, documentNumber);
         txtOtherData.GetComponentInChildren<Text>().text = otherData;
+
+        btnViewStudies.GetComponent<ViewStudies>().PatientID = patientId;
+        btnViewPatientData.GetComponent<ViewPatientData>().PatientID = patientId;
 
         newRow.transform.SetParent(this.ObjectParent.transform);
     }
