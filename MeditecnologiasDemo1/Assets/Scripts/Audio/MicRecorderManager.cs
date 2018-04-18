@@ -1,7 +1,10 @@
-﻿using System;
+﻿#define USE_MOCKEDDATA
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Assets.Scripts.General;
 using MixedRealityToolkit.InputModule;
 using MixedRealityToolkit.InputModule.EventData;
 using MixedRealityToolkit.InputModule.InputHandlers;
@@ -62,8 +65,12 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
 
             this.InstructionsText.text = "Analizando audio. \nPor favor, espere.";
 
+#if USE_MOCKEDDATA
+            Invoke("GetMockedSpeaker", 2f);
+#else
             //Send audio recorded file to the API.
             StartCoroutine(RunSpeakerIdentification(fileContent));
+#endif
         }
         finally
         {
@@ -75,6 +82,18 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
     {
         this.IsRecording = false;
         this.InstructionsText.text = "Record cancelled";
+    }
+
+    private void GetMockedSpeaker()
+    {
+        SessionData.Instance.LoggedMedicId = "89be2a5b-0580-4ff9-a8db-78221eb79078";
+        SessionData.Instance.LoggedMedicName = "Vadim Kotowicz";
+
+        this.InstructionsText.text = string.Format("Bienvenido, {0}! \nCargando su agenda. \nPor favor, espere.", SessionData.Instance.LoggedMedicName);
+
+        this.LoadingGameObject.SetActive(false);
+
+        Invoke("LoadSchedulerScene", 3f);
     }
 
     private const string SpeakerAPIKey = "fc0e83ee971b4a50ba5f77df6dc21266";
@@ -97,8 +116,11 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
         {
             var jsonResults = httpClient.text;
             var speaker = GetSpeaker(jsonResults);
-            StaticSceneStates.AutenticatedName = speaker.name;
-            this.InstructionsText.text = string.Format("Bienvenido, {0}! \nCargando su agenda. \nPor favor, espere.", speaker.name);
+
+            SessionData.Instance.LoggedMedicId = speaker.id;
+            SessionData.Instance.LoggedMedicName = speaker.name;
+
+            this.InstructionsText.text = string.Format("Bienvenido, {0}! \nCargando su agenda. \nPor favor, espere.", SessionData.Instance.LoggedMedicName);
 
             this.LoadingGameObject.SetActive(false);
 
@@ -175,8 +197,7 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
 
     public void LoadSchedulerScene()
     {
-        StaticSceneStates.Autenticated = true;
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Start", LoadSceneMode.Single);
     }
 }
 

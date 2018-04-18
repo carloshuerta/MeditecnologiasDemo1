@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Assets.Scripts.General;
 using MixedRealityToolkit.InputModule.EventData;
-using MixedRealityToolkit.UX.AppBarControl;
+using MixedRealityToolkit.UX.Buttons;
 using MixedRealityToolkit.UX.Receivers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Menu
 {
@@ -13,8 +14,6 @@ namespace Assets.Scripts.Menu
         public override void OnEnable()
         {
             base.OnEnable();
-
-            //RegisterCustomButtons();
 
             Invoke("RegisterCustomButtons", 1);
         }
@@ -33,21 +32,38 @@ namespace Assets.Scripts.Menu
 
                 this.Registerinteractable(appButton);
             }
+
+            if (!SessionData.Instance.HasLogged)
+            {
+                EnableDependentButtons(false);
+            }
         }
 
         protected override void InputClicked(GameObject obj, InputClickedEventData eventData)
         {
-            base.InputClicked(obj, eventData);
+            if (eventData.selectedObject.name == "Authenticate")
+            {
+                SceneManager.LoadScene("AuthenticateUser");
+            }
+            else
+            {
+                base.InputClicked(obj, eventData);
+            }
         }
 
-        protected override void InputDown(GameObject obj, InputEventData eventData)
+        private void EnableDependentButtons(bool enabled)
         {
-            base.InputDown(obj, eventData);
-        }
+            var btnViewPatients = GameObject.Find("ViewPatients");
+            var compountButton = btnViewPatients.GetComponent<CompoundButton>();
 
-        protected override void InputUp(GameObject obj, InputEventData eventData)
-        {
-            base.InputUp(obj, eventData);
+            if (enabled)
+            {
+                compountButton.ButtonState = MixedRealityToolkit.UX.Buttons.Enums.ButtonStateEnum.Observation;
+            }
+            else
+            {
+                compountButton.ButtonState = MixedRealityToolkit.UX.Buttons.Enums.ButtonStateEnum.Disabled;
+            }
         }
     }
 }
