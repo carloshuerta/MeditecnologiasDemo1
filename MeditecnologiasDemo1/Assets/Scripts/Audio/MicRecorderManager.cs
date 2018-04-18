@@ -197,7 +197,7 @@ public class MicRecorderManager : MonoBehaviour, IHoldHandler
 
     public void LoadSchedulerScene()
     {
-        SceneManager.LoadScene("Start", LoadSceneMode.Single);
+        SceneManager.LoadScene("UserAgenda");
     }
 }
 
