@@ -463,7 +463,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                         ButtonTypeEnum.Adjust,
                         "Adjust",
                         "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
-                        "Adjust",
+                        "Adjustar",
                         adjustPosition, // Always next-to-last to appear
                         0);
 
@@ -472,7 +472,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                         ButtonTypeEnum.Done,
                         "Done",
                         "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
-                        "Done",
+                        "Listo",
                         0,
                         0);
 
@@ -481,7 +481,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                         ButtonTypeEnum.Hide,
                         "Hide",
                         "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
-                        "Hide Menu",
+                        "Ocultar Menu",
                         0, // Always the first to appear
                         0);
 
@@ -501,7 +501,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                         ButtonTypeEnum.Remove,
                         "Remove",
                         "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
-                        "Remove",
+                        "Quitar",
                         removePosition, // Always the last to appear
                         1);
 
@@ -510,7 +510,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                         ButtonTypeEnum.Show,
                         "Show",
                         "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
-                        "Show Menu",
+                        "Mostrar Menu",
                         0,
                         0);
 
