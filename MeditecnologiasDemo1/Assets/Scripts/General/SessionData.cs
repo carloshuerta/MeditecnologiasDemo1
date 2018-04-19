@@ -9,6 +9,10 @@ namespace Assets.Scripts.General
 
         public string LoggedMedicName { get; set; }
 
+        public int ViewingPatientId { get; set; }
+
+        public string ViewingPatientName { get; set; }
+
         public bool HasLogged
         {
             get
