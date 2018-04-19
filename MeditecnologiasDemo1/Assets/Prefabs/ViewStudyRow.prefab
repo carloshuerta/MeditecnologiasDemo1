@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 114024113342147824}
   - component: {fileID: 114213270101161018}
   - component: {fileID: 65990077818269308}
+  - component: {fileID: 114140078714485768}
   m_Layer: 5
   m_Name: btnViewStudie
   m_TagString: Untagged
@@ -198,7 +199,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838569010363488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -461,6 +462,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Profile: {fileID: 11400000, guid: f9af5d824507da24b8bbd97f4948aec7, type: 2}
   audioSource: {fileID: 0}
+--- !u!114 &114140078714485768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139477611309630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3df34c553778343a8d0b3a9d9309df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StudyId: 0
 --- !u!114 &114213270101161018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -591,7 +604,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Estudio de columna 20/04/2018
+  m_Text: Estudio de Torax - 17/04/2018
 --- !u!114 &114994413551498978
 MonoBehaviour:
   m_ObjectHideFlags: 1
