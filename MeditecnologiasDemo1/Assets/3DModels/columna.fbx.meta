@@ -1,41 +1,29 @@
 fileFormatVersion: 2
-guid: 5fffebd94b76b55488adf5ec42e1cf85
-timeCreated: 1524082937
+guid: b5c9b4da034b6a047a00f1c3ffde2db3
+timeCreated: 1524114048
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Camera
-    100002: //RootNode
-    100004: Cube
-    100006: KALEJMAN-BONE CT - PRINT 001
-    100008: Lamp
-    100010: node_id4
-    100012: node_id5
+    100002: Cube
+    100004: KALEJMAN-BONE CT - PRINT 001
+    100006: Lamp
+    100008: //RootNode
     400000: Camera
-    400002: //RootNode
-    400004: Cube
-    400006: KALEJMAN-BONE CT - PRINT 001
-    400008: Lamp
-    400010: node_id4
-    400012: node_id5
+    400002: Cube
+    400004: KALEJMAN-BONE CT - PRINT 001
+    400006: Lamp
+    400008: //RootNode
     2000000: Camera
     2100000: No Name
     2100002: Material
-    2100004: Material_55
-    2100006: Material_56
     2300000: Cube
     2300002: KALEJMAN-BONE CT - PRINT 001
-    2300004: node_id4
-    2300006: node_id5
     3300000: Cube
     3300002: KALEJMAN-BONE CT - PRINT 001
-    3300004: node_id4
-    3300006: node_id5
     4300000: KALEJMAN-BONE CT - PRINT 001
     4300002: Cube
-    4300004: node_id4
-    4300006: node_id5
     10800000: Lamp
   externalObjects: {}
   materials:
