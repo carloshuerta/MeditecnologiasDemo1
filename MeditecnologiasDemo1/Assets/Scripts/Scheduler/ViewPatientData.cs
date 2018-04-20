@@ -1,7 +1,6 @@
-﻿using MixedRealityToolkit.InputModule.EventData;
-using MixedRealityToolkit.InputModule.InputHandlers;
-using MixedRealityToolkit.UX.Buttons;
+﻿using MixedRealityToolkit.UX.Buttons;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ViewPatientData : MonoBehaviour
 {
@@ -16,5 +15,7 @@ public class ViewPatientData : MonoBehaviour
     private void OnButtonClicked(GameObject obj)
     {
         Debug.LogFormat("Loading data for Patient {0}.", PatientID);
+
+        SceneManager.LoadScene("PacientData");
     }
 }
