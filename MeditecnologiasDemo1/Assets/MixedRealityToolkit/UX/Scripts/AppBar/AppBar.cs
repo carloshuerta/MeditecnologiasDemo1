@@ -462,7 +462,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                     return new ButtonTemplate(
                         ButtonTypeEnum.Adjust,
                         "Adjust",
-                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
+                        "adjust-white", // Replace with your custom icon texture name in HolographicButton prefab
                         "Adjustar",
                         adjustPosition, // Always next-to-last to appear
                         0);
@@ -471,7 +471,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                     return new ButtonTemplate(
                         ButtonTypeEnum.Done,
                         "Done",
-                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
+                        "done-white", // Replace with your custom icon texture name in HolographicButton prefab
                         "Listo",
                         0,
                         0);
@@ -480,7 +480,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                     return new ButtonTemplate(
                         ButtonTypeEnum.Hide,
                         "Hide",
-                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
+                        "hide-white", // Replace with your custom icon texture name in HolographicButton prefab
                         "Ocultar Menu",
                         0, // Always the first to appear
                         0);
@@ -500,7 +500,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                     return new ButtonTemplate(
                         ButtonTypeEnum.Remove,
                         "Remove",
-                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
+                        "remove-white", // Replace with your custom icon texture name in HolographicButton prefab
                         "Quitar",
                         removePosition, // Always the last to appear
                         1);
@@ -509,7 +509,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                     return new ButtonTemplate(
                         ButtonTypeEnum.Show,
                         "Show",
-                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
+                        "show-hide", // Replace with your custom icon texture name in HolographicButton prefab
                         "Mostrar Menu",
                         0,
                         0);
