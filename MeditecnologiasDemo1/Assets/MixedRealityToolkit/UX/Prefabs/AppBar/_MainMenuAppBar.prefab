@@ -170,7 +170,7 @@ MonoBehaviour:
     ManipulationPosition: 1
     Type: 0
     Name: Authenticate
-    Icon: ObjectCollectionSphere
+    Icon: authenticate-white
     Text: Autenticar
     EventTarget: {fileID: 0}
     OnTappedEvent:
@@ -182,7 +182,7 @@ MonoBehaviour:
     ManipulationPosition: 2
     Type: 0
     Name: ViewPatients
-    Icon: ObjectCollectionDefault
+    Icon: view-patient-white
     Text: Pacientes
     EventTarget: {fileID: 0}
     OnTappedEvent:

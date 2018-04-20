@@ -509,7 +509,7 @@ namespace MixedRealityToolkit.UX.AppBarControl
                     return new ButtonTemplate(
                         ButtonTypeEnum.Show,
                         "Show",
-                        "show-hide", // Replace with your custom icon texture name in HolographicButton prefab
+                        "show-white", // Replace with your custom icon texture name in HolographicButton prefab
                         "Mostrar Menu",
                         0,
                         0);
