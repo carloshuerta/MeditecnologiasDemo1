@@ -41,13 +41,20 @@ namespace Assets.Scripts.Menu
 
         protected override void InputClicked(GameObject obj, InputClickedEventData eventData)
         {
-            if (eventData.selectedObject.name == "Authenticate")
+            if (eventData.selectedObject != null)
             {
-                SceneManager.LoadScene("AuthenticateUser");
+                if (eventData.selectedObject.name == "Authenticate")
+                {
+                    SceneManager.LoadScene("AuthenticateUser");
+                }
+                else
+                {
+                    base.InputClicked(obj, eventData);
+                }
             }
             else
             {
-                base.InputClicked(obj, eventData);
+                Debug.LogWarning("No se encontro un objeto seleccionado.");
             }
         }
 
