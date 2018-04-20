@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿#define USE_MOCKEDDATA
+
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.WSA.WebCam;
 
+// TODO: Fix typo.
 public class PacientPhotoVerifier : MonoBehaviour
 {
     private const string FILE_NAME = @"cognitive_analysis.jpg";
@@ -16,15 +19,17 @@ public class PacientPhotoVerifier : MonoBehaviour
     public InteractiveToggle pacientVerifiedCheckBox;
     public Text TextVerificationStatus;
 
-    public void CaptureImageAndValidate()
-    {
-        CreatePhotoCapture();
-    }
-
     private void Start()
     {
         this.TextVerificationStatus.gameObject.SetActive(false);
         this.pacientVerifiedCheckBox.HasSelection = false;
+
+        this.GetComponent<MixedRealityToolkit.UX.Buttons.Button>().OnButtonClicked += OnButtonClicked;
+    }
+
+    private void OnButtonClicked(GameObject obj)
+    {
+        CreatePhotoCapture();
     }
 
     // This method request to create a PhotoCapture object.
@@ -89,7 +94,11 @@ public class PacientPhotoVerifier : MonoBehaviour
             byte[] image = File.ReadAllBytes(filePath);
 
             // We have the photo taken.
+#if USE_MOCKEDDATA
+            Invoke("ValidatePatientIdentityMocked", 5f);
+#else
             GetFaceAPITags(image);
+#endif
         }
         else
         {
@@ -103,6 +112,12 @@ public class PacientPhotoVerifier : MonoBehaviour
     {
         this.photoCapture.Dispose();
         this.photoCapture = null;
+    }
+
+    private void ValidatePatientIdentityMocked()
+    {
+        this.pacientVerifiedCheckBox.HasSelection = true;
+        this.TextVerificationStatus.text = "Identidad comprobada.";
     }
 
     private void GetFaceAPITags(byte[] image)
